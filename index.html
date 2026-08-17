@@ -3,85 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Tamilselvan R — AI / Python Developer Portfolio">
-<title>Tamilselvan R — AI / Python Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<title>Tamilselvan R | AI Developer</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+background:#050505;color:#f5f5f5;
+font-family:Arial,sans-serif;line-height:1.6
+}
+a{color:inherit;text-decoration:none}
+.container{width:90%;max-width:1100px;margin:auto}
+
+nav{
+height:70px;display:flex;align-items:center;
+justify-content:space-between;
+border-bottom:1px solid #222;
+position:sticky;top:0;background:#050505ee;
+z-index:5
+}
+.logo{font-size:24px;font-weight:800}
+.logo span{color:#c8ff3d}
+.links{display:flex;gap:22px;font-size:12px}
+.links a:hover{color:#c8ff3d}
+
+.resume{
+border:1px solid #555;padding:8px 14px;
+border-radius:5px;font-size:12px
+}
+
+.hero{
+min-height:90vh;display:grid;
+grid-template-columns:1.1fr .9fr;
+align-items:center;gap:50px
+}
+
+.small{
+color:#c8ff3d;font-size:11px;
+letter-spacing:3px;font-weight:bold
+}
+
+h1{
+font-size:clamp(45px,7vw,80px);
+line-height:1;letter-spacing:-4px;
+margin:20px 0
+}
+
+h1 span{color:#c8ff3d}
+
+.hero p{
+color:#999;max-width:600px;font-size:17px
+}
+
+.buttons{display:flex;gap:12px;margin:30px 0}
+
+.btn{
+padding:13px 18px;border-radius:5px;
+font-size:12px;font-weight:bold
+}
+
+.primary{background:#c8ff3d;color:#050505}
+.secondary{border:1px solid #444}
+
+.social{color:#777;font-size:12px}
+.social a:hover{color:white}
+
+.codebox{
+background:#0d0d0f;border:1px solid #29292b;
+border-radius:12px;padding:25px;
+box-shadow:0 20px 70px #000
+}
+
+.codebox span{color:#c8ff3d}
+.codebox b{color:#d19cff}
+
+.stats{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:8px;margin-top:12px
+}
+
+.stat{
+background:#0d0d0f;border:1px solid #222;
+padding:15px;border-radius:6px
+}
+
+.stat strong{display:block;font-size:20px}
+.stat small{color:#777;font-size:9px}
+
+section{padding:100px 0}
+
+.label{
+color:#777;font-size:10px;
+letter-spacing:3px;margin-bottom:25px
+}
+
+h2{
+font-size:50px;letter-spacing:-2px;
+margin-bottom:35px
+}
+
+h2 span{color:#c8ff3d}
+
+.about{
+display:grid;grid-template-columns:1fr 1fr;
+gap:60px
+}
+
+.about p{color:#999;margin-bottom:18px}
+
+.skills{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:10px
+}
+
+.card{
+border:1px solid #242426;
+padding:25px;border-radius:7px;
+background:#090909
+}
+
+.card:hover{border-color:#c8ff3d}
+
+.card h3{margin:15px 0 8px}
+.card p{color:#777;font-size:13px}
+
+.project{
+border:1px solid #242426;
+padding:30px;margin-bottom:12px;
+border-radius:8px;background:#090909
+}
+
+.project:hover{border-color:#555}
+.project small{color:#c8ff3d;letter-spacing:1px}
+.project h3{font-size:28px;margin:10px 0}
+.project p{color:#888}
+
+.tags{margin-top:15px}
+.tags span{
+display:inline-block;border:1px solid #333;
+border-radius:20px;padding:5px 10px;
+font-size:9px;color:#888;margin:3px
+}
+
+.contact{
+border-top:1px solid #222
+}
+
+.contact h2{font-size:clamp(50px,8vw,90px)}
+
+footer{
+border-top:1px solid #222;
+padding:25px 0;color:#666;
+font-size:10px
+}
+
+@media(max-width:750px){
+.links{display:none}
+.hero{grid-template-columns:1fr;padding:60px 0}
+.hero h1{font-size:48px}
+.about{grid-template-columns:1fr}
+.skills{grid-template-columns:1fr 1fr}
+h2{font-size:40px}
+}
+
+@media(max-width:480px){
+.skills{grid-template-columns:1fr}
+.buttons{flex-wrap:wrap}
+}
+</style>
 </head>
 
 <body>
 
-<header class="nav-wrap">
-<nav class="nav container">
-<a class="brand" href="#home">TR<span>.</span></a>
+<nav>
+<div class="container" style="display:flex;align-items:center;justify-content:space-between;width:90%">
+<a class="logo" href="#">TR<span>.</span></a>
 
-<div class="nav-links">
+<div class="links">
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
 <a href="#contact">Contact</a>
 </div>
 
-<a class="resume-btn" href="resume.pdf" target="_blank">Resume ↗</a>
-</nav>
-</header>
-
-<main>
-
-<section id="home" class="hero container">
-
-<div class="hero-copy">
-<div class="eyebrow">
-<span class="dot"></span>
-AI / PYTHON DEVELOPER · IMMEDIATE JOINER
+<a class="resume" href="resume.pdf" target="_blank">Resume ↗</a>
 </div>
+</nav>
+
+<section class="hero container">
+
+<div>
+<div class="small">AI / PYTHON DEVELOPER</div>
 
 <h1>Building <span>intelligent</span><br>solutions with code.</h1>
 
-<p class="hero-text">
-Hi, I'm <strong>Tamilselvan R</strong> — an AI & Data Science graduate
+<p>
+Hi, I'm <b>Tamilselvan R</b> — an AI & Data Science graduate
 focused on Machine Learning, Computer Vision, NLP and practical AI applications.
 </p>
 
-<div class="hero-actions">
-<a class="primary-btn" href="#projects">View my work ↗</a>
-<a class="ghost-btn" href="mailto:tamilselvanr2411@gmail.com">Let's connect</a>
+<div class="buttons">
+<a class="btn primary" href="#projects">View My Work ↗</a>
+<a class="btn secondary" href="mailto:tamilselvanr2411@gmail.com">Let's Connect</a>
 </div>
 
-<div class="socials">
-<a href="https://github.com/Tamilselvanr24" target="_blank">GitHub</a>
-<span>/</span>
-<a href="https://www.linkedin.com/in/tamil-selvan-b03a2a321" target="_blank">LinkedIn</a>
-<span>/</span>
+<div class="social">
+<a href="https://github.com/Tamilselvanr24">GitHub</a> /
+<a href="https://www.linkedin.com/in/tamil-selvan-b03a2a321">LinkedIn</a> /
 <a href="mailto:tamilselvanr2411@gmail.com">Email</a>
 </div>
 </div>
 
-<div class="hero-card">
-<div class="terminal">
-
-<div class="terminal-top">
-<span></span><span></span><span></span>
-<b>tamilselvan.py</b>
+<div>
+<div class="codebox">
+<b>class</b> AIEngineer:<br><br>
+&nbsp;&nbsp;name = <span>"Tamilselvan R"</span><br>
+&nbsp;&nbsp;focus = [<span>"ML"</span>, <span>"Computer Vision"</span>, <span>"NLP"</span>]<br><br>
+&nbsp;&nbsp;<b>return</b> <span>"Ideas → AI → Impact"</span>
 </div>
 
-<pre><code><span class="purple">class</span> <span class="white">AIEngineer</span>:
-
-    <span class="purple">name</span> = <span class="green">"Tamilselvan R"</span>
-
-    <span class="purple">focus</span> = [
-      <span class="green">"Machine Learning"</span>,
-      <span class="green">"Computer Vision"</span>,
-      <span class="green">"NLP"</span>
-    ]
-
-    <span class="purple">def</span> <span class="white">build</span>(<span class="blue">self</span>):
-        <span class="purple">return</span> <span class="green">"Ideas → AI → Impact"</span></code></pre>
-
+<div class="stats">
+<div class="stat"><strong>7.71</strong><small>CGPA</small></div>
+<div class="stat"><strong>4+</strong><small>AI Areas</small></div>
+<div class="stat"><strong>1</strong><small>Internship</small></div>
+</div>
 </div>
 
-<div class="mini-stats">
-<div><strong>7.71</strong><small>CGPA</
+</section>
