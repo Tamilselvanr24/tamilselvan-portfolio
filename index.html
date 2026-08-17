@@ -1,634 +1,1291 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tamilselvan R | AI & Data Science</title>
+  <title>Tamilselvan R | AI & Data Science</title>
 
-    <meta name="description"
-        content="Tamilselvan R - Artificial Intelligence and Data Science graduate portfolio.">
+  <meta
+    name="description"
+    content="Tamilselvan R - Artificial Intelligence and Data Science graduate portfolio."
+  >
 
-    <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #222;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #b7ff32;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #aaa;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #b7ff32;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .small-label {
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: #b7ff32;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #aaa;
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #b7ff32;
+      color: #000;
+      border-color: #b7ff32;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      border: 1px solid #292929;
+      padding: 35px;
+      background: #101010;
+    }
+
+    .hero-card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    section {
+      padding: 110px 0;
+      border-top: 1px solid #191919;
+    }
+
+    .section-label {
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+
+    section h2 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    section h2 span {
+      color: #b7ff32;
+    }
+
+    .section-intro {
+      color: #999;
+      max-width: 680px;
+      font-size: 18px;
+      margin-bottom: 45px;
+    }
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .about-text p {
+      color: #aaa;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .education {
+      border-left: 2px solid #b7ff32;
+      padding-left: 25px;
+    }
+
+    .education h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .education p {
+      color: #999;
+    }
+
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill {
+      border: 1px solid #272727;
+      padding: 28px;
+      background: #0d0d0d;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      border-color: #b7ff32;
+      transform: translateY(-4px);
+    }
+
+    .skill-number {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .skill h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .skill p {
+      color: #888;
+      font-size: 14px;
+    }
+
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      gap: 18px;
+    }
+
+    .project {
+      border: 1px solid #272727;
+      padding: 30px;
+      background: #0d0d0d;
+    }
+
+    .project small {
+      color: #b7ff32;
+      letter-spacing: 2px;
+    }
+
+    .project h3 {
+      font-size: 28px;
+      margin: 12px 0;
+    }
+
+    .project p {
+      color: #999;
+      max-width: 800px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tags span {
+      border: 1px solid #333;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+
+    /* EXPERIENCE */
+
+    .experience-card {
+      border-left: 2px solid #b7ff32;
+      padding: 5px 0 5px 28px;
+      max-width: 850px;
+    }
+
+    .experience-card small {
+      color: #b7ff32;
+      letter-spacing: 2px;
+    }
+
+    .experience-card h3 {
+      font-size: 30px;
+      margin: 12px 0;
+    }
+
+    .experience-card p {
+      color: #999;
+    }
+    /* CERTIFICATIONS */
+
+    .certificates {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .certificate-card {
+      border: 1px solid #292929;
+      background: #0d0d0d;
+      overflow: hidden;
+    }
+
+    .certificate-image {
+      width: 100%;
+      background: #111;
+    }
+
+    .certificate-image img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .certificate-content {
+      padding: 25px 30px 30px;
+    }
+
+    .certificate-number {
+      color: #b7ff32;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .certificate-content h3 {
+      font-size: 27px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .certificate-content p {
+      color: #888;
+    }
+
+
+    /* CONTACT */
+
+    .contact-box {
+      border: 1px solid #292929;
+      padding: 45px;
+      background: #0d0d0d;
+    }
+
+    .contact-box p {
+      color: #999;
+      max-width: 650px;
+      margin-bottom: 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 35px 0;
+      color: #777;
+      text-align: center;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 500px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+
+
+    @media (max-width: 560px) {
+
+      .container {
+        width: 90%;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section h2 {
+        font-size: 43px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-content {
+        padding: 20px;
+      }
+
+      .certificate-content h3 {
+        font-size: 22px;
+      }
+
+      .contact-box {
+        padding: 25px;
+      }
+    }
+
+  </style>
 </head>
-
 <body>
 
-    <!-- ================= HEADER ================= -->
+  <!-- ================= HEADER ================= -->
 
-    <header>
-        <div class="container">
-            <nav>
+  <header>
 
-                <a href="#home" class="logo">
-                    Tamilselvan<span>.</span>
-                </a>
+    <div class="container">
 
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+      <nav>
 
-            </nav>
-        </div>
-    </header>
+        <a href="#home" class="logo">
+          Tamilselvan<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+
+          <li>
+            <a href="#about">About</a>
+          </li>
+
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+
+          <li>
+            <a href="#experience">Experience</a>
+          </li>
+
+          <li>
+            <a href="#certificates">Certificates</a>
+          </li>
+
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
 
 
-    <!-- ================= MAIN ================= -->
-
-    <main>
+  <main>
 
 
-        <!-- ================= HERO ================= -->
+    <!-- ================= HERO ================= -->
 
-        <section id="home" class="hero">
+    <section id="home" class="hero">
 
-            <div class="container">
+      <div class="container">
 
-                <div class="hero-content">
+        <div class="hero-grid">
 
-                    <small>AI & DATA SCIENCE</small>
 
-                    <h1>
-                        Tamilselvan<br>
-                        <span>R.</span>
-                    </h1>
+          <div>
 
-                    <p>
-                        Artificial Intelligence & Data Science graduate
-                        passionate about building practical solutions using
-                        Python, Machine Learning, Computer Vision,
-                        NLP and Data Analytics.
-                    </p>
-
-                    <div class="buttons">
-
-                        <a class="btn primary"
-                            href="mailto:tamilselvanr2411@gmail.com">
-                            Email Me ↗
-                        </a>
-
-                        <a class="btn secondary"
-                            href="https://www.linkedin.com/in/tamil-selvan-b03a2a321"
-                            target="_blank">
-                            LinkedIn ↗
-                        </a>
-
-                    </div>
-
-                </div>
-
+            <div class="small-label">
+              ARTIFICIAL INTELLIGENCE · DATA SCIENCE
             </div>
 
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-
-        <section id="about">
-
-            <div class="container">
-
-                <div class="label">01 — ABOUT</div>
-
-                <h2>
-                    A little <span>about me.</span>
-                </h2>
-
-                <div class="about-text">
-
-                    <p>
-                        I'm Tamilselvan R, an Artificial Intelligence &
-                        Data Science graduate from M.A.M College of
-                        Engineering, Trichy.
-                    </p>
-
-                    <p>
-                        I enjoy building practical solutions using
-                        Python, Machine Learning, Computer Vision,
-                        NLP and Data Analytics.
-                    </p>
-
-                    <p>
-                        During my TechShikSha internship, I gained
-                        hands-on experience with Computer Vision,
-                        NLP and Document Intelligence.
-                    </p>
-
-                    <div class="education">
-
-                        <strong>Education</strong>
-
-                        <br><br>
-
-                        B.Tech — Artificial Intelligence & Data Science
-
-                        <br>
-
-                        M.A.M College of Engineering · Anna University
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= SKILLS ================= -->
-
-        <section id="skills">
-
-            <div class="container">
-
-                <div class="label">02 — SKILLS</div>
-
-                <h2>
-                    My <span>toolbox.</span>
-                </h2>
-
-                <p>
-                    Technologies I use to learn, build and solve
-                    real-world problems.
-                </p>
-
-                <div class="skills">
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">01</div>
-
-                        <h3>Python</h3>
-
-                        <p>
-                            Programming, automation and AI development.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">02</div>
-
-                        <h3>Machine Learning</h3>
-
-                        <p>
-                            Scikit-learn, model training and prediction.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">03</div>
-
-                        <h3>Computer Vision</h3>
-
-                        <p>
-                            OpenCV and real-time vision applications.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">04</div>
-
-                        <h3>NLP</h3>
-
-                        <p>
-                            Natural Language Processing and text analysis.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">05</div>
-
-                        <h3>Power BI</h3>
-
-                        <p>
-                            Interactive dashboards and data visualization.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">06</div>
-
-                        <h3>MS Excel</h3>
-
-                        <p>
-                            Data analysis, Power Query and reporting.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">07</div>
-
-                        <h3>HTML & CSS</h3>
-
-                        <p>
-                            Responsive websites and portfolio design.
-                        </p>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-number">08</div>
-
-                        <h3>Data Analytics</h3>
-
-                        <p>
-                            Data cleaning, analysis and visualization.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= PROJECTS ================= -->
-
-        <section id="projects">
-
-            <div class="container">
-
-                <div class="label">03 — PROJECTS</div>
-
-                <h2>
-                    Things I've <span>built.</span>
-                </h2>
-
-                <p>
-                    Practical projects focused on AI, Machine Learning
-                    and Data Analytics.
-                </p>
-
-                <div class="projects">
-
-
-                    <div class="project">
-
-                        <small>AI · NLP · MACHINE LEARNING</small>
-
-                        <h3>
-                            AI Resume Screening & Job Recommendation
-                        </h3>
-
-                        <p>
-                            An AI-powered system that analyses resumes,
-                            extracts relevant skills and recommends
-                            suitable job roles using Natural Language
-                            Processing and Machine Learning.
-                        </p>
-
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>NLP</span>
-                            <span>Scikit-learn</span>
-                            <span>Flask</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="project">
-
-                        <small>DATA ANALYTICS</small>
-
-                        <h3>
-                            Interactive Data Analytics Dashboard
-                        </h3>
-
-                        <p>
-                            A data analytics dashboard designed to
-                            transform raw data into meaningful
-                            insights through interactive visualizations.
-                        </p>
-
-                        <div class="tags">
-                            <span>Power BI</span>
-                            <span>Excel</span>
-                            <span>Power Query</span>
-                            <span>Data Visualization</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="project">
-
-                        <small>COMPUTER VISION</small>
-
-                        <h3>
-                            Real-Time Computer Vision Application
-                        </h3>
-
-                        <p>
-                            A computer vision application using Python
-                            and OpenCV to process images and video
-                            streams for real-time analysis.
-                        </p>
-
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>OpenCV</span>
-                            <span>Computer Vision</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= EXPERIENCE ================= -->
-
-        <section id="experience">
-
-            <div class="container">
-
-                <div class="label">04 — EXPERIENCE</div>
-
-                <h2>
-                    Industry <span>experience.</span>
-                </h2>
-
-
-                <div class="experience">
-
-                    <div class="project">
-
-                        <small>
-                            TECHSHIKSHA · MICROSOFT INTERNSHIP
-                        </small>
-
-                        <h3>
-                            AI / Data Science Intern
-                        </h3>
-
-                        <p>
-                            Gained hands-on experience in Computer Vision,
-                            Natural Language Processing and Document
-                            Intelligence. Worked with practical AI
-                            concepts and Microsoft technologies.
-                        </p>
-
-                        <div class="tags">
-                            <span>Computer Vision</span>
-                            <span>NLP</span>
-                            <span>Document Intelligence</span>
-                            <span>Azure AI</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CERTIFICATES ================= -->
-
-        <section id="certificates">
-
-            <div class="container">
-
-                <div class="label">05 — CERTIFICATIONS</div>
-
-                <h2>
-                    My <span>certificates.</span>
-                </h2>
-
-                <p>
-                    A collection of certifications, internships
-                    and learning achievements.
-                </p>
-
-
-                <div class="certificate-gallery">
-
-
-                    <!-- 01 -->
-
-                    <div class="certificate">
-
-                        <img
-                            src="IMG-20260817-WA0055.jpg"
-                            alt="TechShikSha Internship Certificate">
-
-                        <h3>
-                            1. TechShikSha Internship
-                        </h3>
-
-                        <p>
-                            TechShikSha · Microsoft Internship Program
-                        </p>
-
-                    </div>
-
-
-                    <!-- 02 -->
-
-                    <div class="certificate">
-
-                        <img
-                            src="IMG-20260817-WA0052.jpg"
-                            alt="TechShikSha Microsoft Internship Certificate">
-
-                        <h3>
-                            2. TechShikSha – Microsoft Internship
-                        </h3>
-
-                        <p>
-                            Computer Vision · NLP · Document Intelligence
-                        </p>
-
-                    </div>
-
-
-                    <!-- 03 -->
-
-                    <div class="certificate">
-
-                        <img
-                            src="IMG-20260205-WA0002.jpg"
-                            alt="Azure AI Language Certificate">
-
-                        <h3>
-                            3. Build a Natural Language Processing Solution
-                            with Azure AI Language
-                        </h3>
-
-                        <p>
-                            Microsoft · Azure AI Language
-                        </p>
-
-                    </div>
-
-
-                    <!-- 04 -->
-
-                    <div class="certificate">
-
-                        <img
-                            src="IMG-20260205-WA0003.jpg"
-                            alt="Azure AI Document Intelligence Certificate">
-
-                        <h3>
-                            4. Create an Intelligent Document Processing
-                            Solution with Azure AI Document Intelligence
-                        </h3>
-
-                        <p>
-                            Microsoft · Azure AI Document Intelligence
-                        </p>
-
-                    </div>
-
-
-                    <!-- 05 -->
-
-                    <div class="certificate">
-
-                        <img
-                            src="IMG-20260817-WA0053.jpg"
-                            alt="Machine Learning using Python Certificate">
-
-                        <h3>
-                            5. Machine Learning using Python Programming
-                        </h3>
-
-                        <p>
-                            AI Foundation Trust · Machine Learning
-                        </p>
-
-                    </div>
-
-
-                    <!-- 06 -->
-
-                    <div class="certificate">
-
-                        <img
-                            src="IMG-20260817-WA0054.jpg"
-                            alt="Future Interns Data Science Analytics Certificate">
-
-                        <h3>
-                            6. Future Interns – Data Science & Analytics
-                        </h3>
-
-                        <p>
-                            1-Month Internship · Data Science & Analytics
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- ================= CONTACT ================= -->
-
-        <section id="contact">
-
-            <div class="container">
-
-                <div class="label">
-                    06 — CONTACT
-                </div>
-
-                <h2>
-                    Let's build something
-                    <span>great.</span>
-                </h2>
-
-                <p>
-                    I'm open to opportunities in Artificial Intelligence,
-                    Machine Learning, Data Science and Data Analytics.
-                </p>
-
-                <div class="buttons">
-
-                    <a
-                        href="mailto:tamilselvanr2411@gmail.com"
-                        class="btn primary">
-                        Email Me ↗
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/in/tamil-selvan-b03a2a321"
-                        target="_blank"
-                        class="btn secondary">
-                        LinkedIn ↗
-                    </a>
-
-                    <a
-                        href="https://github.com/Tamilselvanr24"
-                        target="_blank"
-                        class="btn secondary">
-                        GitHub ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="container">
+            <h1>
+              Building<br>
+              <span>practical</span><br>
+              AI solutions.
+            </h1>
 
             <p>
-                © 2026 Tamilselvan R
+              I'm Tamilselvan R, an Artificial Intelligence &
+              Data Science graduate from M.A.M College of
+              Engineering, Trichy. I enjoy building practical
+              solutions using Python, Machine Learning,
+              Computer Vision, NLP and Data Analytics.
             </p>
+
+            <div class="buttons">
+
+              <a
+                href="mailto:tamilselvanr2411@gmail.com"
+                class="btn btn-primary">
+                Contact Me
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/tamil-selvan-b03a2a321"
+                target="_blank"
+                class="btn">
+                LinkedIn ↗
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-card">
+
+            <h3>
+              AI & Data Science
+            </h3>
+
+            <p>
+              Python · Machine Learning · Computer Vision ·
+              NLP · Power BI · MS Excel
+            </p>
+
+          </div>
+
 
         </div>
 
-    </footer>
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-label">
+          01 — ABOUT
+        </div>
+
+        <h2>
+          A little <span>about me.</span>
+        </h2>
+
+        <p class="section-intro">
+          Passionate about learning, building and solving
+          real-world problems with AI and data.
+        </p>
+
+
+        <div class="about-grid">
+
+
+          <div class="about-text">
+
+            <p>
+              I'm Tamilselvan R, an Artificial Intelligence &
+              Data Science graduate from M.A.M College of
+              Engineering, Trichy.
+            </p>
+
+            <p>
+              I enjoy building practical solutions using
+              Python, Machine Learning, Computer Vision,
+              NLP and Data Analytics.
+            </p>
+
+            <p>
+              During my TechShikSha internship, I gained
+              hands-on experience with Computer Vision,
+              NLP and Document Intelligence.
+            </p>
+
+          </div>
+
+
+          <div class="education">
+
+            <h3>
+              Education
+            </h3>
+
+            <p>
+              B.Tech — Artificial Intelligence & Data Science
+            </p>
+
+            <p>
+              M.A.M College of Engineering
+            </p>
+
+            <p>
+              Anna University
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-label">
+          02 — SKILLS
+        </div>
+
+        <h2>
+          My <span>toolbox.</span>
+        </h2>
+
+        <p class="section-intro">
+          Technologies I use to learn, build and solve
+          real-world problems.
+        </p>
+
+
+        <div class="skills-grid">
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              01
+            </div>
+
+            <h3>
+              Python
+            </h3>
+
+            <p>
+              Programming, automation and AI development.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              02
+            </div>
+
+            <h3>
+              Machine Learning
+            </h3>
+
+            <p>
+              Scikit-learn, model training and prediction.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              03
+            </div>
+
+            <h3>
+              Computer Vision
+            </h3>
+
+            <p>
+              OpenCV and real-time vision applications.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              04
+            </div>
+
+            <h3>
+              NLP
+            </h3>
+
+            <p>
+              Natural Language Processing and text analysis.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              05
+            </div>
+
+            <h3>
+              Power BI
+            </h3>
+
+            <p>
+              Interactive dashboards and data visualization.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              06
+            </div>
+
+            <h3>
+              MS Excel
+            </h3>
+
+            <p>
+              Data analysis, Power Query and reporting.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              07
+            </div>
+
+            <h3>
+              HTML & CSS
+            </h3>
+
+            <p>
+              Responsive websites and portfolio development.
+            </p>
+
+          </div>
+
+
+          <div class="skill">
+
+            <div class="skill-number">
+              08
+            </div>
+
+            <h3>
+              Data Analytics
+            </h3>
+
+            <p>
+              Data cleaning, analysis and visualization.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-label">
+          03 — PROJECTS
+        </div>
+
+        <h2>
+          Things I've <span>built.</span>
+        </h2>
+
+        <p class="section-intro">
+          Projects focused on Artificial Intelligence,
+          Machine Learning and practical data-driven solutions.
+        </p>
+
+
+        <div class="projects">
+
+
+          <div class="project">
+
+            <small>
+              AI · NLP · MACHINE LEARNING
+            </small>
+
+            <h3>
+              AI-Based Resume Screening & Job Recommendation System
+            </h3>
+
+            <p>
+              An AI-powered system designed to analyse resumes,
+              extract relevant information and recommend suitable
+              job opportunities using Natural Language Processing
+              and Machine Learning techniques.
+            </p>
+
+            <div class="tags">
+
+              <span>Python</span>
+              <span>NLP</span>
+              <span>Scikit-learn</span>
+              <span>Flask</span>
+              <span>Machine Learning</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="project">
+
+            <small>
+              COMPUTER VISION
+            </small>
+
+            <h3>
+              Computer Vision Applications
+            </h3>
+
+            <p>
+              Practical computer vision solutions developed using
+              Python and OpenCV for image processing and
+              real-time vision applications.
+            </p>
+
+            <div class="tags">
+
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>Computer Vision</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="project">
+
+            <small>
+              NLP · DOCUMENT INTELLIGENCE
+            </small>
+
+            <h3>
+              AI Solutions for Real-World Problems
+            </h3>
+
+            <p>
+              Applied Computer Vision, NLP and Document
+              Intelligence to develop practical AI solutions
+              during the TechShikSha internship.
+            </p>
+
+            <div class="tags">
+
+              <span>NLP</span>
+              <span>Azure AI</span>
+              <span>Document Intelligence</span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="section-label">
+          04 — EXPERIENCE
+        </div>
+
+        <h2>
+          Industry <span>experience.</span>
+        </h2>
+
+
+        <div class="experience-card">
+
+          <small>
+            TECHSHIKSHA · MICROSOFT INTERNSHIP
+          </small>
+
+          <h3>
+            AI / Data Science Intern
+          </h3>
+
+          <p>
+            Completed the TechShikSha-Microsoft Internship Program
+            with hands-on experience in Computer Vision,
+            Natural Language Processing and Document Intelligence.
+          </p>
+
+          <div class="tags">
+
+            <span>Computer Vision</span>
+            <span>NLP</span>
+            <span>Document Intelligence</span>
+            <span>Microsoft AI</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- ================= CERTIFICATES ================= -->
+
+    <section id="certificates">
+
+      <div class="container">
+
+        <div class="section-label">
+          05 — CERTIFICATIONS
+        </div>
+
+        <h2>
+          My <span>certificates.</span>
+        </h2>
+
+        <p class="section-intro">
+          A collection of certifications, internships and
+          learning achievements.
+        </p>
+
+
+        <div class="certificates">
+
+
+          <!-- 1 -->
+
+          <div class="certificate-card">
+
+            <div class="certificate-image">
+
+              <img
+                src="images/techshiksha-photo.jpg"
+                alt="TechShikSha Internship"
+              >
+
+            </div>
+
+            <div class="certificate-content">
+
+              <div class="certificate-number">
+                01
+              </div>
+
+              <h3>
+                TechShikSha Internship Certificate
+              </h3>
+
+              <p>
+                TechShikSha Internship
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- 2 -->
+
+          <div class="certificate-card">
+
+            <div class="certificate-image">
+
+              <img
+                src="images/techshiksha-certificate.jpg"
+                alt="TechShikSha Microsoft Internship Certificate"
+              >
+
+            </div>
+
+            <div class="certificate-content">
+
+              <div class="certificate-number">
+                02
+              </div>
+
+              <h3>
+                TechShikSha – Microsoft Internship Certificate
+              </h3>
+
+              <p>
+                Computer Vision · NLP · Document Intelligence
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- 3 -->
+
+          <div class="certificate-card">
+
+            <div class="certificate-image">
+
+              <img
+                src="images/azure-language.jpg"
+                alt="Build a Natural Language Processing Solution with Azure AI Language"
+              >
+
+            </div>
+
+            <div class="certificate-content">
+
+              <div class="certificate-number">
+                03
+              </div>
+
+              <h3>
+                Build a Natural Language Processing Solution with Azure AI Language
+              </h3>
+
+              <p>
+                Microsoft · Azure AI Language
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- 4 -->
+
+          <div class="certificate-card">
+
+            <div class="certificate-image">
+
+              <img
+                src="images/azure-document.jpg"
+                alt="Create an Intelligent Document Processing Solution with Azure AI Document Intelligence"
+              >
+
+            </div>
+
+            <div class="certificate-content">
+
+              <div class="certificate-number">
+                04
+              </div>
+
+              <h3>
+                Create an Intelligent Document Processing Solution with Azure AI Document Intelligence
+              </h3>
+
+              <p>
+                Microsoft · Azure AI Document Intelligence
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- 5 -->
+
+          <div class="certificate-card">
+
+            <div class="certificate-image">
+
+              <img
+                src="images/machine-learning.jpg"
+                alt="Machine Learning using Python Programming"
+              >
+
+            </div>
+
+            <div class="certificate-content">
+
+              <div class="certificate-number">
+                05
+              </div>
+
+              <h3>
+                Machine Learning using Python Programming
+              </h3>
+
+              <p>
+                Machine Learning · Python
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- 6 -->
+
+          <div class="certificate-card">
+
+            <div class="certificate-image">
+
+              <img
+                src="images/future-interns.jpg"
+                alt="Future Interns Data Science and Analytics"
+              >
+
+            </div>
+
+            <div class="certificate-content">
+
+              <div class="certificate-number">
+                06
+              </div>
+
+              <h3>
+                Future Interns – Data Science & Analytics
+              </h3>
+
+              <p>
+                1-Month Internship · Data Science & Analytics
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-label">
+          06 — CONTACT
+        </div>
+
+        <h2>
+          Let's <span>connect.</span>
+        </h2>
+
+        <div class="contact-box">
+
+          <p>
+            I'm open to opportunities, internships and
+            entry-level roles related to Artificial Intelligence,
+            Data Science, Machine Learning and Data Analytics.
+          </p>
+
+          <div class="contact-links">
+
+            <a
+              href="mailto:tamilselvanr2411@gmail.com"
+              class="btn btn-primary">
+              Email Me
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/tamil-selvan-b03a2a321"
+              target="_blank"
+              class="btn">
+              LinkedIn ↗
+            </a>
+
+            <a
+              href="https://github.com/Tamilselvanr24"
+              target="_blank"
+              class="btn">
+              GitHub ↗
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Tamilselvan R · Designed & Built with curiosity.
+
+    </div>
+
+  </footer>
 
 
 </body>
 
 </html>
+
+
